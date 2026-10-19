@@ -1,4 +1,3 @@
-
 name: FNF Reasoning Adapter Tests
 
 on:
@@ -22,12 +21,36 @@ jobs:
       - name: Install dependencies
         run: python -m pip install numpy pytest
 
-      - name: Verify adapter import
+      - name: Diagnose Python package resolution
         env:
           PYTHONPATH: src
         run: |
-          python -c "import fnf; print('Package:', fnf.__file__)"
-          python -c "from fnf import ReasoningAdapter; print('Adapter import OK:', ReasoningAdapter.__name__)"
+          set +e
+
+          echo "=== Working directory ==="
+          pwd
+
+          echo "=== Git checkout ==="
+          git rev-parse --show-toplevel
+          git branch --show-current
+
+          echo "=== Package files ==="
+          ls -la src
+          ls -la src/fnf
+          find src/fnf -maxdepth 2 -type f -print
+
+          echo "=== Python environment ==="
+          python --version
+          python -c "import os, sys; print('PYTHONPATH:', os.environ.get('PYTHONPATH')); print('sys.path:', sys.path)"
+
+          echo "=== Resolve fnf ==="
+          python -c "import importlib.util; s = importlib.util.find_spec('fnf'); print('spec:', s); print('origin:', s.origin if s else None); print('locations:', list(s.submodule_search_locations or []) if s else None)"
+
+          echo "=== Import adapter module ==="
+          python -c "from fnf.reasoning_adapter import ReasoningAdapter; print(ReasoningAdapter)"
+
+          echo "=== Import package export ==="
+          python -c "from fnf import ReasoningAdapter; print(ReasoningAdapter)"
 
       - name: Run reasoning adapter tests
         env:
