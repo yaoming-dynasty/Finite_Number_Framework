@@ -213,6 +213,16 @@ class ReasoningAdapter:
             for name in sorted(common)
         }
 
+    def _measurement_within_tolerance(self, old: float, new: float) -> bool:
+        """Use a relative tolerance scaled by the larger measurement magnitude.
+
+        This keeps the preservation check meaningful for very small and very large
+        bond lengths, while preserving the absolute tolerance as a floor for values
+        near zero.
+        """
+        scale = max(abs(old), abs(new), 1.0)
+        return abs(old - new) <= self.tolerance * scale
+
     # ---------------------------------------------------------------
     # 4. Structural validation gates
     # ---------------------------------------------------------------
@@ -351,7 +361,7 @@ class ReasoningAdapter:
         Optional invariants must hold before and after the action.
         If preserve_measurements=True, every named measurement shared
         by both states must remain unchanged within the configured
-        absolute tolerance.
+        relative tolerance scaled by the measurement magnitude.
 
         The action is expected to return a new state. This method
         clones the input when its clone() method is available.
@@ -403,7 +413,7 @@ class ReasoningAdapter:
                     old = before_measurements[name]
                     new = after_measurements[name]
 
-                    if abs(old - new) > self.tolerance:
+                    if not self._measurement_within_tolerance(old, new):
                         return TransitionResult(
                             False,
                             None,
