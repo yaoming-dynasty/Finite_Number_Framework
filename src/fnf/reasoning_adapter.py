@@ -1,4 +1,4 @@
-from future import annotations
+from _future_ import annotations
 
 from dataclasses import dataclass from math import isfinite, log from typing import Any, Callable, Dict, Iterable, List, Optional, Tuple
 
