@@ -64,3 +64,5 @@ Per the Finite Number Framework's provenance model, authorship is established th
 To compute the file fingerprint once saved:
 ```bash
 sha256sum solutions_quantum_mechanics.md
+
+Ronio, C. T., & Grice-Rosa, J. J. (2026). Quantum Superposition and Wavefunction Collapse in the Finite Number Framework.
