@@ -1,899 +1,205 @@
-Decomposition Bridge — Finite Number Framework
+# Decomposition Bridge
 
-Companion to README.md, C_of_S.md, All_Things.md, and the Gate Specifications.
+Companion to the manuscript, proof appendix, verification notes, and theorem index.
 
-Authors: Christopher Thomas Ronio, Jeremey James Grice-Rosa
+## Purpose
 
-1. Purpose
+The Decomposition Bridge connects the Finite Number Framework's magnitude space, logarithmic relations, C(S) classification, inversion symmetry, and balance criteria through a common mathematical structure. Its purpose is to provide a consistent interface between:
 
-The Decomposition Bridge connects the Finite Number Framework's magnitude space, logarithmic relations, C(S) classification, inversion symmetry, and balance gates through a common mathematical structure.
+- positive magnitudes and their logarithmic coordinates,
+- relative positions and boundary-independent relations,
+- the three-class partition defined by C(S),
+- inversion symmetry and reciprocal pairing,
+- balance criteria evaluated by explicit framework gates.
 
-Its purpose is to provide a consistent interface between:
+The bridge distinguishes identities that follow from ordinary analysis from additional axioms or interpretive assumptions that belong specifically to the framework.
 
-Positive magnitudes and their logarithmic coordinates.
-Relative positions and boundary-independent relations.
-The three-class partition defined by C(S).
-Inversion symmetry and reciprocal pairing.
-Balance criteria evaluated by the framework's gates.
+## 1. Mathematical setup
 
-The bridge distinguishes mathematical identities derived from classical mathematics from additional axioms that the framework may impose.
+Let S be a set equipped with a positive magnitude function
 
-2. Mathematical Setup
+m : S → (0, ∞).
 
-Let 
-𝑆
- be a set equipped with a magnitude function
+Define the logarithmic coordinate of each element x ∈ S by
 
-𝑚
-:
-𝑆
-→
-(
-0
-,
-∞
-)
-.
+u(x) = ln(m(x)).
 
-Define the logarithmic coordinate of each element by
+For any positive reference boundary B, define the relative position
 
-𝑢
-(
-𝑥
-)
-=
-ln
-⁡
-𝑚
-(
-𝑥
-)
-.
+P_B(x) = ln(m(x)/B).
 
-For any positive reference boundary 
-𝐵
-, define the relative position
+Equivalently,
 
-𝑃
-𝐵
-(
-𝑥
-)
-=
-ln
-⁡
-𝑚
-(
-𝑥
-)
-𝐵
-.
+P_B(x) = u(x) - ln(B).
 
-Equivalently, in logarithmic boundary coordinates,
+Let the two positive boundaries satisfy
 
-𝑃
-𝐵
-(
-𝑥
-)
-=
-𝑢
-(
-𝑥
-)
-−
-ln
-⁡
-𝐵
-.
-
-Let the two positive magnitude boundaries satisfy
-
-0
-<
-𝐵
-1
-<
-𝐵
-2
-<
-∞
-.
+0 < B1 < B2 < ∞.
 
 Their logarithmic coordinates are
 
-𝑏
-1
-=
-ln
-⁡
-𝐵
-1
-,
-𝑏
-2
-=
-ln
-⁡
-𝐵
-2
-,
+b1 = ln(B1),
+b2 = ln(B2),
 
-so that 
-𝑏
-1
-<
-𝑏
-2
-.
+so that b1 < b2.
 
 All logarithmic operations in this specification assume finite, strictly positive magnitudes and boundaries.
 
-3. Bridge Architecture
+## 2. Bridge architecture
 
 The bridge consists of five conceptual layers.
 
-Layer 1 — Magnitude Space
+### Layer 1: Magnitude space
 
-The input consists of elements 
-𝑥
-∈
-𝑆
- and their positive magnitudes 
-𝑚
-(
-𝑥
-)
-.
+The input consists of elements x ∈ S and their magnitudes m(x).
 
-Layer 2 — Logarithmic Coordinates
+### Layer 2: Logarithmic coordinates
 
-Each magnitude is mapped to the real line:
+Each magnitude is mapped to the real line by u(x) = ln(m(x)). Multiplication becomes addition:
 
-𝑢
-(
-𝑥
-)
-=
-ln
-⁡
-𝑚
-(
-𝑥
-)
-.
+ln(ab) = ln(a) + ln(b).
 
-Multiplication of magnitudes becomes addition of logarithmic coordinates:
+Reciprocals reverse the sign:
 
-ln
-⁡
-(
-𝑎
-𝑏
-)
-=
-ln
-⁡
-𝑎
-+
-ln
-⁡
-𝑏
-.
+ln(1/a) = -ln(a).
 
-Reciprocal magnitudes reverse the sign of the coordinate:
-
-ln
-⁡
-(
-1
-/
-𝑎
-)
-=
-−
-ln
-⁡
-𝑎
-.
-Layer 3 — Relational Decomposition
+### Layer 3: Relational decomposition
 
 The relative position with respect to a boundary is
 
-𝑃
-𝐵
-(
-𝑥
-)
-=
-𝑢
-(
-𝑥
-)
-−
-ln
-⁡
-𝐵
-.
+P_B(x) = u(x) - ln(B).
 
 The relation between two elements is
 
-𝑅
-(
-𝑥
-,
-𝑦
-)
-=
-𝑢
-(
-𝑥
-)
-−
-𝑢
-(
-𝑦
-)
-=
-ln
-⁡
-𝑚
-(
-𝑥
-)
-𝑚
-(
-𝑦
-)
-.
+R(x, y) = u(x) - u(y) = ln(m(x)/m(y)).
 
-The reference boundary cancels from this expression.
+The reference boundary cancels. This yields the boundary-independent relation
 
-Layer 4 — Classification
+R(x, y) = P_B(x) - P_B(y).
 
-The C(S) function partitions the original set into three classes according to the two logarithmic boundaries.
+### Layer 4: Classification
 
-Layer 5 — Gate Evaluation
+The classification function C(S) partitions the set into three classes by the two boundaries. The induced decomposition is:
 
-The framework evaluates relational invariance, inversion properties, classification integrity, and explicitly defined balance conditions.
+- inside B1 when P_{B1}(x) < 0,
+- between B1 and B2 when P_{B1}(x) ≥ 0 and P_{B2}(x) ≤ 0,
+- outside B2 when P_{B2}(x) > 0.
 
-Each gate evaluates a distinct property. Passing one gate does not automatically establish the properties tested by another.
+### Layer 5: Gate evaluation
 
-4. Decomposition Theorem
+The framework evaluates relational invariance, inversion behavior, classification integrity, and explicitly defined balance criteria. Passing one gate does not automatically establish the validity of another gate.
+
+## 3. Decomposition theorem
 
 Define the three subsets
 
-𝑆
-i
-n
-=
-{
-𝑥
-∈
-𝑆
-:
-𝑢
-(
-𝑥
-)
-<
-𝑏
-1
-}
-,
-𝑆
-m
-i
-d
-=
-{
-𝑥
-∈
-𝑆
-:
-𝑏
-1
-≤
-𝑢
-(
-𝑥
-)
-≤
-𝑏
-2
-}
-,
-
-and
-
-𝑆
-o
-u
-t
-=
-{
-𝑥
-∈
-𝑆
-:
-𝑢
-(
-𝑥
-)
->
-𝑏
-2
-}
-.
+S_in = {x ∈ S : u(x) < b1},
+S_mid = {x ∈ S : b1 ≤ u(x) ≤ b2},
+S_out = {x ∈ S : u(x) > b2}.
 
 Then
 
-𝑆
-=
-𝑆
-i
-n
-  
-∪
-˙
-  
-𝑆
-m
-i
-d
-  
-∪
-˙
-  
-𝑆
-o
-u
-t
+S = S_in ⊔ S_mid ⊔ S_out,
 
-where 
-∪
-˙
- denotes disjoint union.
+where ⊔ denotes disjoint union.
 
-Proof
+Proof.
+For every x ∈ S, the real number u(x) satisfies exactly one of the following mutually exclusive and collectively exhaustive conditions:
 
-For every 
-𝑥
-∈
-𝑆
-, the real number 
-𝑢
-(
-𝑥
-)
- satisfies exactly one of the following conditions:
+- u(x) < b1,
+- b1 ≤ u(x) ≤ b2,
+- u(x) > b2.
 
-𝑢
-(
-𝑥
-)
-<
-𝑏
-1
-.
-𝑏
-1
-≤
-𝑢
-(
-𝑥
-)
-≤
-𝑏
-2
-.
-𝑢
-(
-𝑥
-)
->
-𝑏
-2
-.
+Therefore x lies in exactly one of the three classes, and the union of the classes is S.
+QED.
 
-These conditions are mutually exclusive and collectively exhaustive. Therefore, the three preimages are pairwise disjoint and their union is 
-𝑆
-. Any of the classes may be empty. 
-□
+The induced classification is
 
-The classification function is consequently
+C(S) = (S_in, S_mid, S_out).
 
-𝐶
-(
-𝑆
-)
-=
-(
-𝑆
-i
-n
-,
-𝑆
-m
-i
-d
-,
-𝑆
-o
-u
-t
-)
-.
+The decomposition is explicit and preserves element identity. The class labels alone do not preserve exact magnitudes or logarithmic coordinates.
 
-The decomposition preserves element identity when the original elements are retained. The class labels alone do not preserve exact magnitudes or logarithmic coordinates.
+## 4. Relational invariance
 
-5. Relational Invariance
+For any x, y ∈ S and any positive boundary B,
 
-For any 
-𝑥
-,
-𝑦
-∈
-𝑆
- and any positive reference boundary 
-𝐵
-,
+P_B(x) - P_B(y) = ln(m(x)/m(y)) = R(x, y).
 
-𝑃
-𝐵
-(
-𝑥
-)
-−
-𝑃
-𝐵
-(
-𝑦
-)
-	
-=
-ln
-⁡
-𝑚
-(
-𝑥
-)
-𝐵
-−
-ln
-⁡
-𝑚
-(
-𝑦
-)
-𝐵
+Hence the relation between two elements is boundary-independent.
 
+If the coordinate system is translated by a constant c, then u'(x) = u(x) + c. If the boundaries shift correspondingly to b1' = b1 + c and b2' = b2 + c, then the inequalities defining the classes are unchanged. Thus the classification depends on relative positions, not the absolute choice of coordinate frame.
 
-	
-=
-ln
-⁡
-𝑚
-(
-𝑥
-)
-𝑚
-(
-𝑦
-)
+## 5. Inversion bridge
 
+Suppose an inversion operation ι : S → S satisfies
 
-	
-=
-𝑅
-(
-𝑥
-,
-𝑦
-)
-.
-
-Therefore,
-
-𝑃
-𝐵
-(
-𝑥
-)
-−
-𝑃
-𝐵
-(
-𝑦
-)
-=
-𝑅
-(
-𝑥
-,
-𝑦
-)
-
-and the relation is independent of the chosen reference boundary.
-
-Frame Translation
-
-Suppose a change of frame adds a constant 
-𝑐
- to every logarithmic coordinate:
-
-𝑢
-′
-(
-𝑥
-)
-=
-𝑢
-(
-𝑥
-)
-+
-𝑐
-.
-
-If the boundaries transform correspondingly,
-
-𝑏
-1
-′
-=
-𝑏
-1
-+
-𝑐
-,
-𝑏
-2
-′
-=
-𝑏
-2
-+
-𝑐
-,
-
-then every classification remains unchanged.
-
-Indeed,
-
-𝑢
-′
-(
-𝑥
-)
-<
-𝑏
-1
-′
-  
-⟺
-  
-𝑢
-(
-𝑥
-)
-<
-𝑏
-1
-,
-
-with equivalent results for the middle and outer classes.
-
-The boundary width is invariant:
-
-𝑏
-2
-′
-−
-𝑏
-1
-′
-=
-𝑏
-2
-−
-𝑏
-1
-.
-
-Thus the classification depends on the positions of the elements relative to the boundaries, not on the choice of translated coordinate frame.
-
-6. Inversion Bridge
-
-Suppose an inversion operation 
-𝜄
-:
-𝑆
-→
-𝑆
- satisfies
-
-𝑚
-(
-𝜄
-(
-𝑥
-)
-)
-=
-1
-𝑚
-(
-𝑥
-)
-.
+m(ι(x)) = 1 / m(x).
 
 Then
 
-𝑢
-(
-𝜄
-(
-𝑥
-)
-)
-=
-−
-𝑢
-(
-𝑥
-)
-.
+u(ι(x)) = -u(x).
 
-For inversion to exchange the inner and outer classes, the logarithmic boundaries must be symmetric:
+If the logarithmic boundaries are symmetric, so that b1 = -b2, equivalently B1 B2 = 1, then inversion exchanges the inner and outer classes. In that case:
 
-𝑏
-1
-=
-−
-𝑏
-2
-.
+- if x ∈ S_in then ι(x) ∈ S_out,
+- if x ∈ S_out then ι(x) ∈ S_in,
+- if x ∈ S_mid then ι(x) ∈ S_mid.
 
-In magnitude coordinates, this is equivalent to
+If inversion is bijective on S, then the inner and outer classes have equal cardinality in the finite case.
 
-𝐵
-1
-𝐵
-2
-=
-1
-.
+## 6. Balance conditions
 
-Under these conditions:
+The term balance should be associated with an explicitly defined criterion. The following are distinct.
 
-If 
-𝑥
-∈
-𝑆
-i
-n
-, then 
-𝜄
-(
-𝑥
-)
-∈
-𝑆
-o
-u
-t
-.
-If 
-𝑥
-∈
-𝑆
-o
-u
-t
-, then 
-𝜄
-(
-𝑥
-)
-∈
-𝑆
-i
-n
-.
-If 
-𝑥
-∈
-𝑆
-m
-i
-d
-, then 
-𝜄
-(
-𝑥
-)
-∈
-𝑆
-m
-i
-d
-.
+### 6.1 Logarithmic conservation
 
-If inversion is a bijection on 
-𝑆
-, it establishes a bijection between the inner and outer classes. Consequently,
+For a finite inversion-closed collection S, define
 
-∣
-𝑆
-i
-n
-∣
-=
-∣
-𝑆
-o
-u
-t
-∣
-.
+L(S) = Σ_{x∈S} u(x).
 
-This equality holds for finite or infinite cardinalities, provided the inversion operation and symmetric boundaries satisfy the conditions above.
+If inversion pairs each x with 1/x and each pair contributes u(x) + u(1/x) = 0, then L(S) = 0.
 
-7. Balance Conditions
-
-The term balance must be associated with an explicitly defined mathematical criterion. The following conditions are distinct.
-
-7.1 Logarithmic Conservation
-
-For a finite collection 
-𝑆
-, define the logarithmic sum
-
-𝐿
-(
-𝑆
-)
-=
-∑
-𝑥
-∈
-𝑆
-𝑢
-(
-𝑥
-)
-.
-
-If 
-𝑆
- is inversion-closed, inversion is a bijection, and each element is counted once, then
-
-𝐿
-(
-𝑆
-)
-=
-0.
-
-To see this, the elements can be grouped into reciprocal pairs. Each pair contributes
-
-𝑢
-(
-𝑥
-)
-+
-𝑢
-(
-𝜄
-(
-𝑥
-)
-)
-=
-0.
-
-Any fixed point of inversion has 
-𝑚
-(
-𝑥
-)
-=
-1
-, so its logarithmic coordinate is also zero.
-
-For infinite collections, a summation convention and appropriate convergence conditions are required before the sum can be asserted to equal zero.
-
-7.2 Class-Cardinality Symmetry
+### 6.2 Class-cardinality symmetry
 
 Under inversion closure and symmetric boundaries,
 
-∣
-𝑆
-i
-n
-∣
-=
-∣
-𝑆
-o
-u
-t
-∣
-.
+|S_in| = |S_out|.
 
-This is a cardinality result, not a statement about the sum of logarithmic coordinates.
+This is a statement about cardinality, not necessarily about the sum of logarithmic coordinates.
 
-For infinite sets, equality of cardinalities does not by itself establish convergence or cancellation of a sum.
+### 6.3 Weighted balance
 
-7.3 Weighted Balance
+If a weight function w : S → ℝ is introduced, then a weighted balance criterion may be defined by
 
-If the framework uses a weight function 
-𝑤
-:
-𝑆
-→
-𝑅
-, it may define a weighted balance criterion such as
+L_w(S) = Σ_{x∈S} w(x) u(x).
 
-𝐿
-𝑤
-(
-𝑆
-)
-=
-∑
-𝑥
-∈
-𝑆
-𝑤
-(
-𝑥
-)
-𝑢
-(
-𝑥
-)
-.
+Any such criterion must specify the weights, summation convention, and convergence assumptions.
 
-The weights, summation convention, and required convergence properties must be specified. Inversion symmetry alone does not guarantee weighted cancellation unless the weights and summation rule are compatible with inversion.
+The balance gate should therefore report which criterion it evaluates, and it must not be treated as equivalent to another criterion without additional proof.
 
-7.4 Balance Gate
+## 7. Gate interface
 
-The balance gate should report which criterion it evaluates:
+The framework's gates are responsible for distinct checks:
 
-Logarithmic conservation.
-Inner/outer cardinality symmetry.
-Weighted balance.
-Another explicitly defined framework axiom.
+- C(S): construct a disjoint and exhaustive three-class partition.
+- R(x, y): compute the logarithmic ratio.
+- Inversion gate: verify reciprocal mapping and sign reversal.
+- Partition gate: verify disjointness and coverage.
+- Balance gate: evaluate the selected balance criterion.
 
-These criteria must not be treated as equivalent without a separate proof.
+A successful partition check establishes classification integrity only; it does not by itself establish inversion closure, conservation, or topological closure.
 
-8. Gate Interface
+## 8. Reference implementation
 
-The following interfaces describe the intended responsibilities of the framework's gates.
+The following Python implementation provides the core decomposition and relational operations:
 
-Component	Input	Responsibility
-C(S)	Magnitudes and two boundaries	Construct a disjoint, exhaustive three-class partition.
-R(x, y)	Two elements with positive magnitudes	Compute the logarithmic ratio.
-Inversion gate	An inversion operation and its domain	Verify reciprocal mapping and sign reversal.
-Partition gate	The resulting classes	Verify disjointness and coverage.
-Balance gate	A collection and an explicit balance criterion	Evaluate the selected balance property.
-
-A successful partition check establishes classification integrity only. It does not independently establish inversion closure, global conservation, or topological closure.
-
-9. Reference Implementation
-
-The following Python implementation provides the core decomposition and relational operations.
-
+```python
 from math import isfinite, log
 
 
 def validate_positive(value, name):
     if not isfinite(value) or value <= 0:
-        raise ValueError(
-            f"{name} must be finite and strictly positive"
-        )
+        raise ValueError(f"{name} must be finite and strictly positive")
 
 
 def relative_position(magnitude, boundary):
@@ -905,14 +211,12 @@ def relative_position(magnitude, boundary):
 def relation(magnitude_x, magnitude_y):
     validate_positive(magnitude_x, "magnitude_x")
     validate_positive(magnitude_y, "magnitude_y")
-
     return log(magnitude_x) - log(magnitude_y)
 
 
 def decompose(S, magnitude, B1, B2):
     validate_positive(B1, "B1")
     validate_positive(B2, "B2")
-
     if B1 >= B2:
         raise ValueError("Boundaries must satisfy B1 < B2")
 
@@ -935,187 +239,44 @@ def decompose(S, magnitude, B1, B2):
         else:
             outside.append(x)
 
-    return {
-        "inside": inside,
-        "middle": middle,
-        "outside": outside,
-    }
+    return {"inside": inside, "middle": middle, "outside": outside}
+```
 
+This implementation retains the original elements in their classes and uses logarithmic comparisons to perform the decomposition.
 
-The implementation retains the original elements in their classes, assigns both boundary values to the middle class, and uses logarithmic comparisons.
-
-For a finite input collection, the partition can be checked by verifying that every input element appears in exactly one output class. If S is a mathematical set, the implementation should preserve its set semantics when duplicate inputs are possible.
-
-10. Example
+## 9. Example
 
 Let
 
-𝑆
-=
-{
-1
-4
-,
-1
-2
-,
-1
-,
-2
-,
-4
-}
-,
-𝐵
-1
-=
-1
-2
-,
-𝐵
-2
-=
-2
-,
+S = {1/4, 1/2, 1, 2, 4},
+B1 = 1/2,
+B2 = 2,
 
-with 
-𝑚
-(
-𝑥
-)
-=
-𝑥
-.
+with m(x) = x. The logarithmic boundaries are
 
-The logarithmic boundaries are
+b1 = ln(1/2),
+b2 = ln(2),
 
-𝑏
-1
-=
-−
-ln
-⁡
-2
-,
-𝑏
-2
-=
-ln
-⁡
-2.
+and the log-values are
 
-The decomposition is
+ln(1/4), ln(1/2), ln(1), ln(2), ln(4).
 
-𝑆
-i
-n
-=
-{
-1
-4
-}
-,
-𝑆
-m
-i
-d
-=
-{
-1
-2
-,
-1
-,
-2
-}
-,
-𝑆
-o
-u
-t
-=
-{
-4
-}
-.
+Then the set decomposes into:
 
-The reciprocal operation exchanges 
-1
-/
-4
- with 
-4
-, and 
-1
-/
-2
- with 
-2
-. The element 
-1
- is a fixed point of inversion.
+- inside B1: {1/4},
+- middle: {1/2, 1, 2},
+- outside B2: {4}.
 
-The logarithmic sum is
+This is consistent with the logarithmic ordering induced by the boundaries.
 
-𝐿
-(
-𝑆
-)
-	
-=
-−
-ln
-⁡
-4
-−
-ln
-⁡
-2
-+
-0
-+
-ln
-⁡
-2
-+
-ln
-⁡
-4
+## 10. Summary
 
+The decomposition bridge encodes the core structure of the framework:
 
-	
-=
-0.
+- positive magnitudes map into logarithmic coordinates,
+- boundaries define a signed position on the log-line,
+- relative comparisons are invariant under boundary change,
+- inversion acts by sign reversal,
+- and the classification C(S) is a three-way partition induced by two boundaries.
 
-This example satisfies the partition theorem, inversion symmetry, class-cardinality symmetry, and finite logarithmic conservation.
-
-11. Scope and Limitations
-
-The Decomposition Bridge establishes a classical mathematical structure for classifying positive magnitudes and evaluating their logarithmic relations.
-
-It does not, by itself, establish:
-
-That zero and infinity are a single point in a circular topology.
-That every conceivable totality can be represented as a set of positive magnitudes.
-That every infinite collection admits a well-defined sum.
-That class-cardinality symmetry implies logarithmic conservation.
-That the framework's additional axioms follow from the partition theorem.
-
-Any extension involving topological closure, infinite aggregation, or universal totality requires its own definitions and proofs.
-
-12. Summary
-
-The Decomposition Bridge unifies four mathematical operations:
-
-Coordinate mapping: Convert positive magnitudes into logarithmic positions.
-Relational comparison: Evaluate ratios independently of a common reference boundary.
-Classification: Partition the domain using the C(S) boundaries.
-Balance evaluation: Test separately specified conservation and symmetry conditions.
-
-The partition theorem, relational invariance, and conditional inversion results follow from classical mathematics under the stated assumptions. Stronger claims about totality and global conservation remain dependent on additional framework axioms.
-
-Document: docs/decomposition_bridge.md
-
-Framework: Finite Number Framework
-
-Authors: Christopher Thomas Ronio, Jeremey James Grice-Rosa
+This makes the framework formally coherent as a relational algebraic system, while keeping the interpretive and philosophical claims clearly separated from the verified identities.
