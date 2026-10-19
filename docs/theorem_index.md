@@ -2,9 +2,9 @@
 
 ## Purpose
 
-This appendix provides a compact numbering scheme for the formal results in the Finite Number Framework. Its purpose is to make the structure of the manuscript easier to reference and to provide a stable index for theorems, propositions, lemmas, corollaries, definitions, and axioms.
+This appendix provides a compact numbering scheme for the formal results in the Finite Number Framework. The purpose is to make the structure of the manuscript easier to reference and to provide a stable index for definitions, lemmas, propositions, corollaries, and theorems.
 
-The framework is organized around the canonical logarithmic coordinate and the boundary-relative position. The numbering below follows the convention that:
+The numbering used here follows the convention that:
 
 - Axioms are labeled A1, A2, ...
 - Definitions are labeled D1, D2, ...
@@ -13,29 +13,27 @@ The framework is organized around the canonical logarithmic coordinate and the b
 - Corollaries are labeled C1, C2, ...
 - Theorems are labeled T1, T2, ...
 
----
-
-## 1. Core Definitions and Notation
+## 1. Core definitions and notation
 
 ### D1. Positive magnitude domain
 
-Ω = ℝ_{>0}
+Ω = ℝ_{>0}.
 
 ### D2. Canonical logarithmic coordinate
 
-q(x) := ln(x)
+q(x) := ln(x).
 
 ### D3. Boundary-relative position
 
-P_B(x) := ln(x / B)
+P_B(x) := ln(x / B).
 
 ### D4. Relative relation
 
-R(x, y) := ln(x / y)
+R(x, y) := ln(x / y).
 
 ### D5. Inversion
 
-Inv(x) := 1/x
+Inv(x) := 1 / x.
 
 ### D6. Inversion-closed set
 
@@ -43,31 +41,29 @@ A set S ⊆ Ω is inversion-closed if x ∈ S implies 1/x ∈ S.
 
 ### D7. Two-boundary classification
 
-Given boundaries 0 < B1 < B2 and set S ⊆ Ω, the classification C_{B1,B2}(S) is defined by:
+For S ⊆ Ω and 0 < B1 < B2, define C_{B1,B2}(S) by:
 
-- inside B1 if P_{B1}(x) < 0
-- between B1 and B2 if P_{B1}(x) ≥ 0 and P_{B2}(x) ≤ 0
-- outside B2 if P_{B2}(x) > 0
+- inside B1 if P_{B1}(x) < 0,
+- between B1 and B2 if P_{B1}(x) ≥ 0 and P_{B2}(x) ≤ 0,
+- outside B2 if P_{B2}(x) > 0.
 
 ### D8. Many & Few
 
-Many&Few(S; B1, B2) := (S, C_{B1,B2}(S))
-
----
+Many&Few(S; B1, B2) := (S, C_{B1,B2}(S)).
 
 ## 2. Axioms
 
-### A1. Positive magnitude domain
+### A1. Positive domain
 
 All magnitudes lie in Ω = ℝ_{>0}.
 
-### A2. Logarithmic representation
+### A2. Logarithmic coordinate
 
 Every magnitude x is represented by q(x) = ln(x).
 
-### A3. Boundary-relative representation
+### A3. Boundary-relative coordinate
 
-Every magnitude x relative to a boundary B is represented by P_B(x) = ln(x/B).
+Every magnitude x relative to boundary B is represented by P_B(x) = ln(x/B).
 
 ### A4. Inversion symmetry
 
@@ -83,9 +79,7 @@ For all x, B, B' ∈ Ω, P_{B'}(x) = P_B(x) + ln(B/B').
 
 ### A7. Inversion closure
 
-A system of interest may be closed under inversion, so that x ∈ S implies 1/x ∈ S.
-
----
+A system of interest may be closed under inversion.
 
 ## 3. Lemmas
 
@@ -119,8 +113,6 @@ For all x, y, B ∈ Ω,
 
 P_B(x) - P_B(y) = ln(x/y).
 
----
-
 ## 4. Propositions
 
 ### P1. Boundary translation law
@@ -129,13 +121,13 @@ For all x, B, B' ∈ Ω,
 
 P_{B'}(x) = P_B(x) + ln(B/B').
 
-### P2. Relative positions are invariant under boundary choice
+### P2. Relative comparisons are boundary-independent
 
 For all x, y, B, B' ∈ Ω,
 
 P_B(x) - P_B(y) = P_{B'}(x) - P_{B'}(y).
 
-### P3. Inversion under a normalized boundary
+### P3. Normalized boundary inversion
 
 If B = 1, then for all x ∈ Ω,
 
@@ -149,7 +141,7 @@ P_1(x) < 0 iff P_1(1/x) > 0.
 
 ### P5. Pairwise cancellation
 
-If S is inversion-closed and finite, then for all pairs x and 1/x ∈ S,
+If S is inversion-closed and finite, then for every pair x and 1/x in S,
 
 q(x) + q(1/x) = 0.
 
@@ -157,21 +149,19 @@ q(x) + q(1/x) = 0.
 
 For every S ⊆ Ω and boundaries 0 < B1 < B2, the classes induced by C_{B1,B2}(S) are mutually exclusive and exhaustive.
 
-### P7. Many & Few is invariant up to boundary translation
+### P7. Many & Few is invariant up to translation
 
 Classification under a pair of boundaries differs from classification under another pair only by a translation of the coordinate system.
 
-### P8. The logarithmic map is a group isomorphism
+### P8. Logarithmic map is a group isomorphism
 
 The map q : Ω → ℝ is a group isomorphism from (Ω, ×) to (ℝ, +).
-
----
 
 ## 5. Corollaries
 
 ### C1. Boundary-free relative comparison
 
-For all x, y ∈ Ω and any boundary B > 0,
+For all x, y and any boundary B > 0,
 
 ln(x/y) = P_B(x) - P_B(y).
 
@@ -181,15 +171,9 @@ For any inversion pair x and 1/x,
 
 q(x) + q(1/x) = 0.
 
-### C3. Total sum over paired inversion-closed sets is zero
+### C3. Total cancellation over inversion-closed finite sets
 
-If S is finite and inversion-closed, then
-
-Σ_{x∈S} q(x) = 0
-
-when grouped by inverse pairs.
-
----
+If S is finite and inversion-closed, then the paired sum of q-values over S is zero.
 
 ## 6. Theorems
 
@@ -207,7 +191,7 @@ P_B(x) - P_B(y) = P_{B'}(x) - P_{B'}(y).
 
 ### T3. Inversion is reflection on the logarithmic line
 
-For a normalized boundary B = 1,
+For normalized boundary B = 1,
 
 P_1(1/x) = -P_1(x).
 
@@ -223,9 +207,7 @@ For all S and all B1 < B2, the induced classification C_{B1,B2}(S) is a valid pa
 
 The map q : Ω → ℝ is an isomorphism between the multiplicative structure of positive magnitudes and the additive structure of the real line.
 
----
-
-## 7. Index of Main Results by Concept
+## 7. Index by concept
 
 ### Boundary and position
 
@@ -243,22 +225,10 @@ The map q : Ω → ℝ is an isomorphism between the multiplicative structure of
 
 - D7, D8, P6, P7, T5
 
-### Algebraic structure
+### Algebraic backbone
 
 - D2, A2, L1, L2, P8, T6
 
----
+## 8. Final note
 
-## 8. Recommended Cross-References
-
-- Use D3 in conjunction with A3 and P1.
-- Use D5 with A4 and P3.
-- Use D6 with P5 and T4.
-- Use D7 and D8 with P6 and T5.
-- Use D2 and P8 for the algebraic backbone of the framework.
-
----
-
-## 9. Closing Note
-
-This numbering scheme is intended to make the framework easier to reference and easier to evaluate as a formal mathematical theory. Any future extension of the framework should maintain consistency with this numbering system and use the same convention for cross-references.
+This numbering scheme is intended to make the framework easier to reference and easier to evaluate as a formal mathematical theory. Future extensions should preserve the same conventions.
