@@ -16,6 +16,8 @@ which turns multiplication into addition, inversion into negation, and boundary 
 
 - [docs/manuscript.md](docs/manuscript.md) — the main journal-style manuscript
 - [docs/decomposition_bridge.md](docs/decomposition_bridge.md) — the bridge between magnitude space, logarithmic coordinates, and the classification scheme
+- [docs/composition_bridge.md](docs/composition_bridge.md) — how element-level magnitudes compose into larger structures
+- [docs/transformation_bridge.md](docs/transformation_bridge.md) — how transformations and frame changes affect the system
 - [docs/verification.md](docs/verification.md) — a finite verification procedure for the framework
 - [docs/proof_appendix.md](docs/proof_appendix.md) — formal lemmas and proofs
 - [docs/theorem_index.md](docs/theorem_index.md) — theorem numbering and index
@@ -25,9 +27,11 @@ which turns multiplication into addition, inversion into negation, and boundary 
 
 1. [docs/manuscript.md](docs/manuscript.md)
 2. [docs/decomposition_bridge.md](docs/decomposition_bridge.md)
-3. [docs/verification.md](docs/verification.md)
-4. [docs/proof_appendix.md](docs/proof_appendix.md)
-5. [docs/theorem_index.md](docs/theorem_index.md)
+3. [docs/composition_bridge.md](docs/composition_bridge.md)
+4. [docs/transformation_bridge.md](docs/transformation_bridge.md)
+5. [docs/verification.md](docs/verification.md)
+6. [docs/proof_appendix.md](docs/proof_appendix.md)
+7. [docs/theorem_index.md](docs/theorem_index.md)
 
 ## Core mathematical identities
 
